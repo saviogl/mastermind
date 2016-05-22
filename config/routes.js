@@ -32,8 +32,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'GET /game': 'GameController.find',
-  'GET /game/:id': 'GameController.findOne',
   'POST /game': 'GameController.create',
   'POST /join': 'GameController.join',
   'POST /guess': 'GameController.guess',

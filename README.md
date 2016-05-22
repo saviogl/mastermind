@@ -169,3 +169,24 @@ RESPONSE:
   "game_key": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnYW1lIjo3NCwidXNlciI6IkphbmUgRG9lIiwibXVsdGlwbGF5ZXIiOnRydWV9.PErRQcBiayhlPu9jyVexJoGtMfRcWtBw7QOFKbEZ7U8"
 }
 ```
+
+# Running Application
+
+Clone the project into your machine
+
+```
+git clone git@github.com:saviogl/mastermind.git
+```
+
+cd into the directory
+
+```
+npm install
+npm start
+```
+
+# Testing Application
+
+```
+npm test
+```

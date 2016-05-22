@@ -48,20 +48,6 @@ module.exports = {
         res.ok(game);
       })
       .catch(res.negotiate)
-  },
-
-  find: (req, res, next) => {
-    Game
-      .find()
-      .then(games => res.ok(games))
-      .catch(res.negotiate);
-  },
-
-  findOne: (req, res, next) => {
-    Game
-      .findOneById(req.params.id)
-      .then(game => res.ok(game))
-      .catch(res.negotiate);
   }
 };
 
