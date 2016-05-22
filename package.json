@@ -1,0 +1,31 @@
+{
+  "name": "mastermind_api",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "include-all": "~0.1.6",
+    "jwt-simple": "^0.5.0",
+    "rc": "1.0.1",
+    "sails": "~0.12.3",
+    "sails-disk": "~0.10.9"
+  },
+  "scripts": {
+    "debug": "node debug app.js",
+    "start": "node app.js",
+    "test": "_mocha test/bootstrap.test.js test/unit/*.test.js test/integration/*.test.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/saviolucena/mastermind_api.git"
+  },
+  "author": "saviolucena",
+  "license": "",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
+  }
+}
