@@ -81,7 +81,7 @@ RESPONSE:
 }
 ```
 
-## POST /guess - Take Guess
+## POST /guess - Guess
 To take a guess at some game execute the following HTTP request
 ```
 REQUEST:
@@ -98,7 +98,7 @@ Postman-Token: 8b4ee639-cb6d-01cb-3bcc-11149aae7a35
 }
 
 RESPONSE:
-```
+
 {
   "user": "John Doe",
   "colors": [
