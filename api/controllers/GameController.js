@@ -44,7 +44,7 @@ module.exports = {
       .then(game => {
         game = game.pop()
         let game_key = Token.encode({ game: game.id, user: user, multiplayer: true });
-        game.game_key = game_key;        
+        game.game_key = game_key;
         res.ok(game);
       })
       .catch(res.negotiate)
@@ -117,9 +117,9 @@ const guessMultiplayer = (token, req, res, next) => {
         game.user_past_guesses.push(guess);
       } else {
         game.guest_guesses_attempts++;
-        game.guest_past_guesses.push(guess);        
+        game.guest_past_guesses.push(guess);
       }
- 
+
       if (guess.exact === game.positions) {
         game.solved = true;
         game.solvedAt = new Date();
@@ -129,10 +129,24 @@ const guessMultiplayer = (token, req, res, next) => {
 
       game = game.toObject();
 
-      return [guess, GameMultiplayer.update(game.id, game)];
+      return [token, guess, GameMultiplayer.update(game.id, game)];
     })
-    .spread((guess, game) => {
+    .spread((token, guess, game) => {
       game = game.pop();
+      game.toObject();
+
+      if (token.user === game.user) {
+        game.guesses_attempts = game.user_guesses_attempts;
+        game.past_guesses = game.user_past_guesses;
+      } else {
+        game.guesses_attempts = game.guest_guesses_attempts;
+        game.past_guesses = game.guest_past_guesses;
+      }
+
+      delete game.user_guesses_attempts;
+      delete game.user_past_guesses;
+      delete game.guest_guesses_attempts;
+      delete game.guest_past_guesses;
 
       if (game.solved) {
         game.result = `${game.solvedBy} win!`
