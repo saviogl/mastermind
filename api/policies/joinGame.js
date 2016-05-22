@@ -27,6 +27,10 @@ module.exports = (req, res, next) => {
   GameMultiplayer
     .findOneById(game)
     .then(game => {
+      if (!game) {
+        return res.notFound({ message: 'Not Found' });
+      }
+
       if (game.guest) {
         res.status(423);
         return res.json({ message: 'Maximum number of players reached' });
