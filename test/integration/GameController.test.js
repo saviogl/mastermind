@@ -270,7 +270,7 @@ describe('GameController', () => {
               .expect(200)
               .end((err, res) => {
                 expect(res.body).to.be.an('object');
-                expect(res.body).to.have.keys(['user', 'colors', 'positions', 'user_guesses_attempts', 'user_past_guesses', 'guest_past_guesses', 'guest_guesses_attempts', 'solved', 'result', 'duration', 'guest', 'solvedBy']);
+                expect(res.body).to.have.keys(['user', 'colors', 'positions', 'guesses_attempts', 'past_guesses', 'solved', 'result', 'duration', 'guest', 'solvedBy']);
                 expect(res.body.solvedBy).to.be.equal('John Doe');
                 expect(res.body.result).to.be.a('string');
                 expect(res.body.result).to.be.equal('John Doe win!');
